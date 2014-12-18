@@ -114,4 +114,4 @@ Erlang: the emo language.
 
 A function must call itself in order for it to keep living. If it does not call itself, it will kill itself.
 
-If a master function dies, all of it's worker functions also kill themselves.
+If a master function dies, all of its worker functions also kill themselves.
