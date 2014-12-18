@@ -1,6 +1,5 @@
 -module(mc).
-%%-execute([]).
--compile(export_all).
+-export([start/0, master/0, worker/3]).
 
 -record(side, {m=3, c=3, s=true}).
 -record(state, {left=#side{m=0, c=0, s=false}, right=#side{}}).
@@ -9,12 +8,6 @@ start() ->
 	State = #state{},
 	MasterId = spawn(mc, master, []),
 	spawn(mc, worker, [MasterId, State, []]).
-
-printPath([H]) ->
-	io:format("~p~n", H);
-printPath([H|T]) ->
-	io:format("~p~n", H),
-	printPath(T).
 
 master() ->
 	receive
